@@ -1,4 +1,3 @@
-
 local opt = {
 	prefix = ';',			-- ;ff me | /ff me
 	tupleSeparator = ',',	-- ;ff me,others,all | ;ff me/others/all
@@ -410,6 +409,10 @@ loadstring(game:HttpGet(('https://raw.githubusercontent.com/mgamingpro/HomebrewA
     cmd.add({"fatesadmin"}, {"fatesadmin", "Executes fates admin"}, function()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"))();
         end)
+
+		cmd.add({"krystaldance"}, {"krystaldance", "Krystal Dance"}, function()
+			loadstring(game:HttpGet('https://gist.githubusercontent.com/1BlueCat/e51327540d1ba5ede244c459dbdb5a0e/raw/6320fe344ac51a311ef7c9f8d5c3924b1a7c3969/Krystal%2520Dance'))()
+			end)
 
 		cmd.add({"toolui"}, {"toolui", "cool tool ui aka replication ui made by 0866"}, function()
 			loadstring(game:HttpGet("https://pastebin.com/raw/vr2YVyF6"))();
