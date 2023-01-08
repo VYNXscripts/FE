@@ -3157,7 +3157,7 @@ end)
 --[[ GUI VARIABLES ]]--
 local ScreenGui
 if not RunService:IsStudio() then
-	ScreenGui = game:GetObjects("rbxassetid://12080667625")[1]
+	ScreenGui = game:GetObjects("rbxassetid://12095186225")[1]
 else
 	repeat wait() until player:FindFirstChild("AdminUI", true)
 	ScreenGui = player:FindFirstChild("AdminUI", true)
@@ -3597,7 +3597,45 @@ function Destroy(guiObject)
 		guiObject.Parent = nil
 	end
 end
+wait(.5)
+-- Gui to Lua
+-- Version: 3.2
 
+-- Instances:
+
+local ScreenGui55 = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UIGradient = Instance.new("UIGradient")
+local ImageLabel = Instance.new("ImageLabel")
+local UICorner = Instance.new("UICorner")
+
+--Properties:
+
+ScreenGui55.Name = "ScreenGui55"
+ScreenGui55.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui55.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui55
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BackgroundTransparency = 0.170
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.423606783, 0, 0, 0)
+Frame.Size = UDim2.new(0, 263, 0, 60)
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(10, 22, 41)), ColorSequenceKeypoint.new(0.26, Color3.fromRGB(17, 28, 44)), ColorSequenceKeypoint.new(0.51, Color3.fromRGB(17, 30, 47)), ColorSequenceKeypoint.new(0.76, Color3.fromRGB(21, 43, 53)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(14, 29, 47))}
+UIGradient.Offset = Vector2.new(-0.014400024, 0.0150001524)
+UIGradient.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 0.00), NumberSequenceKeypoint.new(0.48, 0.00), NumberSequenceKeypoint.new(1.00, 0.00)}
+UIGradient.Parent = Frame
+
+ImageLabel.Parent = Frame
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BackgroundTransparency = 1.000
+ImageLabel.Position = UDim2.new(0.108166613, 0, 0.150000006, 0)
+ImageLabel.Size = UDim2.new(0, 206, 0, 42)
+ImageLabel.Image = "http://www.roblox.com/asset/?id=12094592378"
+
+UICorner.Parent = Frame
+ScreenGui55.ResetOnSpawn = false
 wait(1)
 local Players = game:FindService("Players")
 
