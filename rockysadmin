@@ -2224,11 +2224,6 @@ function()
    loadstring(game:GetObjects("rbxassetid://6695644299")[1].Source)()
 end)
 
-ADD_COMMAND('clip','clip',{},
-function()
-   NOCLIP = false
-end)
-
 ADD_COMMAND('fly','fly',{},
 function()
    NOTIFY('Toggle = E', 0, 255, 0)
