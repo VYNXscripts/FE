@@ -147,6 +147,8 @@ local spawntime = game.Players.RespawnTime + 3
 local hatstored = {}
 
 SilentC.MouseButton1Click:Connect(function()
+wait()
+ScreenGui:Destroy()
 
 local char = game.Players.LocalPlayer.Character
 if runcode then
