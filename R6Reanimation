@@ -1131,9 +1131,9 @@ do -- Bug Reporting
 	wait();
 	
 	Notify({
-	Description = "Turning R6...";
+	Description = "Turned R6";
 	Title = "Temple Admin";
-	Duration = 5;
+	Duration = 3;
 	});
 end
 
