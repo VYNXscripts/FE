@@ -39,3 +39,7 @@ Rounding = true,
 BorderSizePixel = 0
 }
 })
+});
+wait(7)
+local AkaliDelete = game.CoreGui.AkaliNotif
+AkaliDelete:Destroy()
