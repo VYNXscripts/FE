@@ -27,7 +27,6 @@ local function Round2px()
 	NewImage.ScaleType = Enum.ScaleType.Slice;
 	NewImage.SliceCenter = Rect.new(2, 2, 298, 298);
 	NewImage.ImageColor3 = Color3.fromRGB(18, 4, 0);
-	NewImage.BackgroundTransparency = 0.13
 	return NewImage;
 end
 
