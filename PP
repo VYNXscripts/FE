@@ -1,0 +1,420 @@
+----------[  Credits  ]----------
+game:GetService("StarterGui"):SetCore("SendNotification", {
+    Title = "Credits";
+    Text = "Made by 5CH1Z0, GUI by Damian11#3382"
+})
+---------------------------------
+
+
+----------[  Variables  ]----------
+local players = game:GetService("Players");
+local localPlayer = players.LocalPlayer;
+local localCharacter = localPlayer.Character;
+local localHumanoid = localCharacter.Humanoid;
+local root = localHumanoid.RootPart;
+
+local runService = game:GetService("RunService");
+local starterGui = game:GetService("StarterGui");
+local heartBeat = runService.Heartbeat;
+-----------------------------------
+
+
+----------[  Settings  ]----------
+_G.settings = {
+    speed = 0.25,
+    mode = 1,
+    player = localPlayer.Name,
+    customBodyPartPos = false
+};
+----------------------------------
+
+
+----------[   Custom  ]----------
+_G.customPositions = {
+    leftArm = Vector3.new(-0.5, 0, -0.75),
+    rightArm = Vector3.new(0.5, 0, -0.75),
+    leftLeg = Vector3.new(0, 0, 0),
+    rightLeg = Vector3.new(0, 0, 0),
+    torso = Vector3.new(0, 0, 0),
+    head = Vector3.new(0, 0, 0),
+};
+
+_G.customOrientations = {
+    leftArm = Vector3.new(45, 0, -30),
+    rightArm = Vector3.new(45, 0, 30),
+    leftLeg = Vector3.new(0, 0, 0),
+    rightLeg = Vector3.new(0, 0, 0),
+    torso = Vector3.new(0, 0, 0),
+    head = Vector3.new(0, 0, 0)
+};
+------------------------------
+
+
+----------[  Base  ]----------
+local basePositions = {
+    leftArm = Vector3.new(1.5, 0, 0),
+    rightArm = Vector3.new(-1.5, 0, 0),
+    leftLeg = Vector3.new(0.5, -2, 0),
+    rightLeg = Vector3.new(-0.5, -2, 0),
+    torso = Vector3.new(0, 0, 0),
+    head = Vector3.new(0, 1, 0),
+};
+
+local baseOrientations = {
+    leftArm = Vector3.new(0, 0, 0),
+    rightArm = Vector3.new(0, 0, 0),
+    leftLeg = Vector3.new(0, 0, 0),
+    rightLeg = Vector3.new(0, 0, 0),
+    torso = Vector3.new(0, 0, 0),
+    head = Vector3.new(0, 0, 0)
+};
+------------------------------
+
+local hatAttachments = {};
+local bodyPartPosConnection
+local hatConnection
+local function startMain()
+----------[  Main function  ]----------
+
+
+----------[  Netless  ]----------
+    local netlessConnection
+    for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
+        if v:IsA("BasePart") and v.Name ~= "HumanoidRootPart" then 
+            netlessConnection = game:GetService("RunService").Heartbeat:connect(function()
+                v.Velocity = Vector3.new(-30, 0, 0)
+                v.Massless = true
+            end)
+        end
+    end
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Netless";
+        Text = "Netless v? has succesfully been loaded!"
+    })
+---------------------------------
+
+
+    if not players:FindFirstChild(_G.settings.player) or not players:FindFirstChild(_G.settings.player).Character then
+        _G.settings.player = localplayer
+    end
+    localCharacter = localPlayer.Character;
+    localHumanoid = localCharacter.Humanoid;
+    root = localHumanoid.RootPart;
+    task.spawn(function()
+        for i,v in pairs(localCharacter:GetDescendants()) do
+            if v:IsA("SpecialMesh") and v.Parent.Name ~= "Head" then
+                v:Destroy();
+            end;
+        end;
+    end)
+
+    local parts = {};
+    local hatParts = {};
+    local bodyParts = {};
+    for i,v in pairs(localCharacter:GetDescendants()) do
+        if v.Name == "Handle" then
+            table.insert(hatParts, v);
+            table.insert(parts, v);
+        end;
+        -- if #hatParts == 9 then
+        --     break
+        -- end
+
+        if v.Name == "Left Arm" then
+            table.insert(bodyParts, v);
+            table.insert(parts, v);
+        end;
+        if v.Name == "Right Arm" then
+            table.insert(bodyParts, v);
+            table.insert(parts, v);
+        end;
+        -- if v.Name == "Left Leg" then
+        -- 	table.insert(bodyParts, v);
+        -- 	table.insert(parts, v);
+        -- end;
+        -- if v.Name == "Right Leg" then
+        -- 	table.insert(bodyParts, v);
+        -- 	table.insert(parts, v);
+        -- end;
+    end;
+    -------------------------------------------
+
+
+    ----------[  Body Part Manipulation  ]----------
+    --[[ DISABLED DUE TO REJECTCHARACTERDELETIONS 
+    local bodyAttachments = {};
+    local bodyAttachmentsOne = {};
+    for i, v in pairs(bodyParts) do
+        local attachment1 = Instance.new("Attachment", v);
+        -- local attachment2 = Instance.new("Attachment", root);
+        local attachment2 = Instance.new("Attachment", players:FindFirstChild(_G.settings.player).Character.Humanoid.RootPart);
+        attachment2.Position = Vector3.new(0,-5,0);
+
+        local alignPosition = Instance.new("AlignPosition");
+        alignPosition.Parent = v;
+        alignPosition.MaxForce = math.huge;
+        alignPosition.MaxVelocity = math.huge;
+        alignPosition.Responsiveness = math.huge;
+        alignPosition.Attachment0 = attachment1;
+        alignPosition.Attachment1 = attachment2;
+
+        local alignOrientation = Instance.new("AlignOrientation");
+        alignOrientation.Parent = v;
+        alignOrientation.MaxAngularVelocity = math.huge;
+        alignOrientation.MaxTorque = math.huge;
+        alignOrientation.Responsiveness = math.huge;
+        alignOrientation.Attachment0 = attachment1;
+        alignOrientation.Attachment1 = attachment2;
+
+        bodyAttachmentsOne[i] = attachment1;
+        bodyAttachments[i] = attachment2;
+
+        if v.Name == "Left Arm" then
+            attachment2.Position = basePositions.leftArm + _G.customPositions.leftArm;
+            attachment2.Orientation = baseOrientations.leftArm + _G.customOrientations.leftArm;
+        end;
+        if v.Name == "Right Arm" then
+            attachment2.Position = basePositions.rightArm + _G.customPositions.rightArm;
+            attachment2.Orientation = baseOrientations.rightArm + _G.customOrientations.rightArm;
+        end;
+        if v.Name == "Left Leg" then
+            attachment2.Position = basePositions.leftLeg + _G.customPositions.leftLeg;
+            attachment2.Orientation = baseOrientations.leftLeg + _G.customOrientations.leftLeg;
+        end;
+        if v.Name == "Right Leg" then
+            attachment2.Position = basePositions.rightLeg + _G.customPositions.rightLeg;
+            attachment2.Orientation = baseOrientations.rightLeg + _G.customOrientations.rightLeg;
+        end;
+
+        bodyPartPosConnection = heartBeat:Connect(function()
+            if _G.settings.customBodyPartPos == true then
+                for i, attachment in pairs(bodyAttachmentsOne) do
+                    local attachmentTwo = bodyAttachments[i]
+                    if attachment.Parent.Name == "Left Arm" then
+                        attachmentTwo.Position = basePositions.leftArm + _G.customPositions.leftArm;
+                        attachmentTwo.Orientation = baseOrientations.leftArm + _G.customOrientations.leftArm;
+                    elseif attachment.Parent.Name == "Right Arm" then
+                        attachmentTwo.Position = basePositions.rightArm + _G.customPositions.rightArm;
+                        attachmentTwo.Orientation = baseOrientations.rightArm + _G.customOrientations.rightArm;
+                    elseif attachmentTwo.Parent.Name == "Left Leg" then
+                        attachmentTwo.Position = basePositions.leftLeg + _G.customPositions.leftLeg;
+                        attachmentTwo.Orientation = baseOrientations.leftLeg + _G.customOrientations.leftLeg;
+                    elseif attachmentTwo.Parent.Name == "Right Leg" then
+                        attachmentTwo.Position = basePositions.rightLeg + _G.customPositions.rightLeg;
+                        attachmentTwo.Orientation = baseOrientations.rightLeg + _G.customOrientations.rightLeg;
+                    end;
+                end
+            else
+                for i, attachment in pairs(bodyAttachmentsOne) do
+                    attachmentTwo = bodyAttachments[i]
+                    if attachment.Parent.Name == "Left Arm" then
+                        attachmentTwo.Position = basePositions.leftArm
+                        attachmentTwo.Orientation = baseOrientations.leftArm
+                    end;
+                    if attachment.Parent.Name == "Right Arm" then
+                        attachmentTwo.Position = basePositions.rightArm
+                        attachmentTwo.Orientation = baseOrientations.rightArm
+                    end;
+                    if attachment.Parent.Name == "Left Leg" then
+                        attachmentTwo.Position = basePositions.leftLeg
+                        attachmentTwo.Orientation = baseOrientations.leftLeg
+                    end;
+                    if attachment.Parent.Name == "Right Leg" then
+                        attachmentTwo.Position = basePositions.rightLeg
+                        attachmentTwo.Orientation = baseOrientations.rightLeg
+                    end;
+                end  
+            end
+        end)
+
+        v:BreakJoints();
+    end;
+    ------------------------------------------------
+--]]
+
+    ----------[  Hat Manipulation  ]----------
+    hatAttachments = {};
+    for i,v in pairs(hatParts) do
+        local attachment1 = Instance.new("Attachment", v);
+        -- local attachment2 = Instance.new("Attachment", root);
+        local attachment2 = Instance.new("Attachment", players:FindFirstChild(_G.settings.player).Character.Humanoid.RootPart);
+        attachment2.Position = Vector3.new(0,-5,0);
+
+        local alignPosition = Instance.new("AlignPosition");
+        alignPosition.Parent = v;
+        alignPosition.MaxForce = math.huge;
+        alignPosition.MaxVelocity = math.huge;
+        alignPosition.Responsiveness = math.huge;
+        alignPosition.Attachment0 = attachment1;
+        alignPosition.Attachment1 = attachment2;
+
+        local alignOrientation = Instance.new("AlignOrientation");
+        alignOrientation.Parent = v;
+        alignOrientation.MaxAngularVelocity = math.huge;
+        alignOrientation.MaxTorque = math.huge;
+        alignOrientation.Responsiveness = math.huge;
+        alignOrientation.Attachment0 = attachment1;
+        alignOrientation.Attachment1 = attachment2;
+
+        hatAttachments[i] = attachment2;
+
+        hatConnection = heartBeat:Connect(function()
+            attachment2.Parent = players:FindFirstChild(_G.settings.player).Character.Humanoid.RootPart
+        end)
+
+        v:BreakJoints();
+    end;
+
+    hatAttachments[1].Position = Vector3.new(-0.55, -1.5, -1);
+    hatAttachments[2].Position = Vector3.new(0.55, -1.5, -1);
+    -- hatAttachments[1].Position = Vector3.new(-0.55, 0.3, -1);
+    -- hatAttachments[2].Position = Vector3.new(0.55, 0.3, -1);
+end
+
+task.spawn(function()
+    local z = 0;
+    while task.wait() do
+        if _G.settings.mode == 1 then
+            if z < 2 then 
+                z += 1*_G.settings.speed ;
+            else
+                z = 0;
+            end;
+        elseif _G.settings.mode == 2 then
+            if z < 2 then 
+                z += 1*_G.settings.speed ;
+            else 
+                task.wait(0.5);
+                z = 0;
+            end;
+        end
+        for x,y in pairs(hatAttachments) do
+            if x == 1 or x == 2 then continue end
+            hatAttachments[x].Position = Vector3.new(0, -1, -x-z+3);
+        end;
+    end
+end)
+------------------------------------------
+
+
+----------[  Load notification  ]----------
+starterGui:SetCore("SendNotification", {
+    Title = "Load check";
+    Text = "Everything loaded succesfully"
+});
+-------------------------------------------
+
+
+----------[  GUI FUNCTIONS  ]----------
+local function getPlayerByPlayerName(name)
+    if name then
+        name = name:lower()
+        for i, v in ipairs(players:GetPlayers()) do
+            if string.lower(string.sub(v.Name, 1, #name)) == name then
+                return v
+            end
+            if string.lower(string.sub(v.DisplayName, 1, #name)) == name then
+                return v
+            end
+        end
+        for i, v in ipairs(players:GetPlayers()) do
+            if string.match(v.Name:lower(), name) then
+                return v
+            end
+            if string.match(v.DisplayName:lower(), name) then
+                return v
+            end
+        end
+    end
+end
+
+local function getTargetPlayer(name) -- try to get a target player from the name
+    local target
+    if name == " " or name == "" then
+        -- if target player isn't specified, use the localplayer
+        target = localPlayer
+        return target
+    end
+    local matchingPlayer = getPlayerByPlayerName(name)
+    if name:lower() == "me" then
+        target = localPlayer
+        return target
+    elseif name:lower() == "random" then
+        local playerTable = players:GetPlayers()
+        target = playerTable[math.random(#playerTable)]
+        return target
+    elseif matchingPlayer then
+        target = matchingPlayer
+        return target
+    end
+    target = localPlayer
+    return target
+end
+------------------------------------------
+
+
+----------[  Events  ]----------
+localHumanoid.Died:Connect(function()
+    bodyPartPosConnection:Disconnect()
+    netlessConnection:Disconnect()
+    hatConnection:Disconnect()
+end)
+
+------------------------------------------
+
+----------[  GUI  ]----------
+local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
+
+local w = library:CreateWindow("Roblox FE Penis with animation")
+local b = w:CreateFolder("Main")
+local c = w:CreateFolder("Credits")
+
+b:Label("Made by 5CH1Z0", {
+    TextSize = 25;
+    TextColor = Color3.fromRGB(255,255,255);
+    BgColor = Color3.fromRGB(69,69,69);
+})
+
+b:Label("GUI made by Damian11#3382", {
+    TextSize = 15;
+    TextColor = Color3.fromRGB(255,255,255);
+    BgColor = Color3.fromRGB(69,69,69);
+})
+
+b:Button("Start script", function()
+    startMain()
+end)
+--[[
+b:Toggle("Custom body part position", function(bool)
+    _G.settings.customBodyPartPos = bool
+end)
+--]]
+
+b:Box("Target name", "string", function(value)
+    _G.settings.player = getTargetPlayer(value).Name
+end)
+
+b:Slider("Slider",{
+    min = 0;
+    max = 15;
+    precise = false;
+}, function(value)
+    _G.settings.speed = value / 10
+end)
+
+b:Dropdown("Mode", {"Standard", "Ejaculate"}, true, function(mob)
+    if mob == "Standard" then
+        _G.settings.mode = 1
+    else
+        _G.settings.mode = 2
+    end
+end)
+
+c:Label("RoPI - emotional support", {
+    TextSize = 15;
+    TextColor = Color3.fromRGB(255,255,255);
+    BgColor = Color3.fromRGB(69,69,69);
+})
+
+b:DestroyGui()
+------------------------------------------
