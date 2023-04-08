@@ -414,7 +414,6 @@ List.BorderSizePixel = 0
 List.Position = UDim2.new(0, 6, 0, 27)
 List.Size = UDim2.new(1, -10, 1, -27)
 List.BottomImage = "rbxgameasset://Images/scrollBottom (1)"
-List.CanvasPosition = Vector2.new(0, 6.79802942)
 List.MidImage = "rbxgameasset://Images/scrollMid"
 List.ScrollBarThickness = 4
 List.TopImage = "rbxgameasset://Images/scrollTop"
@@ -464,8 +463,8 @@ UICorner_4.Parent = TextBox
 TextLabel_2.Parent = TextLabel
 TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_2.BackgroundTransparency = 1.000
-TextLabel_2.Position = UDim2.new(0.0809523836, 0, 0, 0)
-TextLabel_2.Size = UDim2.new(0, 68, 0, 23)
+TextLabel_2.Position = UDim2.new(0.0857142881, 0, 0, 0)
+TextLabel_2.Size = UDim2.new(0, 62, 0, 23)
 TextLabel_2.Font = Enum.Font.SourceSans
 TextLabel_2.Text = "Target name"
 TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -498,7 +497,8 @@ UICorner_6.Parent = TextBox_2
 TextLabel_4.Parent = TextLabel_3
 TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_4.BackgroundTransparency = 1.000
-TextLabel_4.Size = UDim2.new(0, 68, 0, 23)
+TextLabel_4.Position = UDim2.new(0.0857142881, 0, 0, 0)
+TextLabel_4.Size = UDim2.new(0, 32, 0, 23)
 TextLabel_4.Font = Enum.Font.SourceSans
 TextLabel_4.Text = "Speed"
 TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -593,15 +593,15 @@ UICorner_7.Parent = Commands
 
 -- Scripts:
 
-local function JFRZ_fake_script() -- TextButton.LocalScript 
+local function BLUEWBX_fake_script() -- TextButton.LocalScript 
 	local script = Instance.new('LocalScript', TextButton)
 
 	script.Parent.MouseButton1Click:Connect(function()
 		startMain()
 		end)
 end
-coroutine.wrap(JFRZ_fake_script)()
-local function EORXKBC_fake_script() -- TextBox.LocalScript 
+coroutine.wrap(BLUEWBX_fake_script)()
+local function USSK_fake_script() -- TextBox.LocalScript 
 	local script = Instance.new('LocalScript', TextBox)
 
 	script.Parent.FocusLost:Connect(function()--when the user stops inputting text
@@ -610,8 +610,8 @@ local function EORXKBC_fake_script() -- TextBox.LocalScript
 		print("event was fired ")
 	end) 
 end
-coroutine.wrap(EORXKBC_fake_script)()
-local function MHHF_fake_script() -- TextBox_2.LocalScript 
+coroutine.wrap(USSK_fake_script)()
+local function AJZO_fake_script() -- TextBox_2.LocalScript 
 	local script = Instance.new('LocalScript', TextBox_2)
 
 	script.Parent.FocusLost:Connect(function()--when the user stops inputting text
@@ -619,23 +619,23 @@ local function MHHF_fake_script() -- TextBox_2.LocalScript
 		_G.settings.speed = text / 10
 	end) 
 end
-coroutine.wrap(MHHF_fake_script)()
-local function URUQKAZ_fake_script() -- Exit.LocalScript 
+coroutine.wrap(AJZO_fake_script)()
+local function IKUF_fake_script() -- Exit.LocalScript 
 	local script = Instance.new('LocalScript', Exit)
 
 	script.Parent.MouseButton1Click:Connect(function()
 		script.Parent.Parent.Parent.Parent:Destroy()
 		end)
 end
-coroutine.wrap(URUQKAZ_fake_script)()
-local function WITEAO_fake_script() -- Commands.LocalScript 
+coroutine.wrap(IKUF_fake_script)()
+local function DUZE_fake_script() -- Commands.LocalScript 
 	local script = Instance.new('LocalScript', Commands)
 
 	script.Parent.Active = true
 	script.Parent.Parent.ResetOnSpawn = false
 end
-coroutine.wrap(WITEAO_fake_script)()
-local function HBDGTL_fake_script() -- Commands.smooth 
+coroutine.wrap(DUZE_fake_script)()
+local function VMWNP_fake_script() -- Commands.smooth 
 	local script = Instance.new('LocalScript', Commands)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -692,4 +692,4 @@ local function HBDGTL_fake_script() -- Commands.smooth
 	
 	runService.Heartbeat:Connect(Update)
 end
-coroutine.wrap(HBDGTL_fake_script)()
+coroutine.wrap(VMWNP_fake_script)()
