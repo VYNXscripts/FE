@@ -16,7 +16,7 @@ _G.settings = {
 	speed = 0.25,
 	mode = 1,
 	player = localPlayer.Name,
-	customBodyPartPos = false
+	customBodyPartPos = true
 };
 ----------------------------------
 
