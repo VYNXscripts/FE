@@ -1,11 +1,3 @@
-----------[  Credits  ]----------
-game:GetService("StarterGui"):SetCore("SendNotification", {
-    Title = "Credits";
-    Text = "Made by 5CH1Z0, GUI by Damian11#3382"
-})
----------------------------------
-
-
 ----------[  Variables  ]----------
 local players = game:GetService("Players");
 local localPlayer = players.LocalPlayer;
@@ -21,52 +13,52 @@ local heartBeat = runService.Heartbeat;
 
 ----------[  Settings  ]----------
 _G.settings = {
-    speed = 0.25,
-    mode = 1,
-    player = localPlayer.Name,
-    customBodyPartPos = false
+	speed = 0.25,
+	mode = 1,
+	player = localPlayer.Name,
+	customBodyPartPos = false
 };
 ----------------------------------
 
 
 ----------[   Custom  ]----------
 _G.customPositions = {
-    leftArm = Vector3.new(-0.5, 0, -0.75),
-    rightArm = Vector3.new(0.5, 0, -0.75),
-    leftLeg = Vector3.new(0, 0, 0),
-    rightLeg = Vector3.new(0, 0, 0),
-    torso = Vector3.new(0, 0, 0),
-    head = Vector3.new(0, 0, 0),
+	leftArm = Vector3.new(-0.5, 0, -0.75),
+	rightArm = Vector3.new(0.5, 0, -0.75),
+	leftLeg = Vector3.new(0, 0, 0),
+	rightLeg = Vector3.new(0, 0, 0),
+	torso = Vector3.new(0, 0, 0),
+	head = Vector3.new(0, 0, 0),
 };
 
 _G.customOrientations = {
-    leftArm = Vector3.new(45, 0, -30),
-    rightArm = Vector3.new(45, 0, 30),
-    leftLeg = Vector3.new(0, 0, 0),
-    rightLeg = Vector3.new(0, 0, 0),
-    torso = Vector3.new(0, 0, 0),
-    head = Vector3.new(0, 0, 0)
+	leftArm = Vector3.new(45, 0, -30),
+	rightArm = Vector3.new(45, 0, 30),
+	leftLeg = Vector3.new(0, 0, 0),
+	rightLeg = Vector3.new(0, 0, 0),
+	torso = Vector3.new(0, 0, 0),
+	head = Vector3.new(0, 0, 0)
 };
 ------------------------------
 
 
 ----------[  Base  ]----------
 local basePositions = {
-    leftArm = Vector3.new(1.5, 0, 0),
-    rightArm = Vector3.new(-1.5, 0, 0),
-    leftLeg = Vector3.new(0.5, -2, 0),
-    rightLeg = Vector3.new(-0.5, -2, 0),
-    torso = Vector3.new(0, 0, 0),
-    head = Vector3.new(0, 1, 0),
+	leftArm = Vector3.new(1.5, 0, 0),
+	rightArm = Vector3.new(-1.5, 0, 0),
+	leftLeg = Vector3.new(0.5, -2, 0),
+	rightLeg = Vector3.new(-0.5, -2, 0),
+	torso = Vector3.new(0, 0, 0),
+	head = Vector3.new(0, 1, 0),
 };
 
 local baseOrientations = {
-    leftArm = Vector3.new(0, 0, 0),
-    rightArm = Vector3.new(0, 0, 0),
-    leftLeg = Vector3.new(0, 0, 0),
-    rightLeg = Vector3.new(0, 0, 0),
-    torso = Vector3.new(0, 0, 0),
-    head = Vector3.new(0, 0, 0)
+	leftArm = Vector3.new(0, 0, 0),
+	rightArm = Vector3.new(0, 0, 0),
+	leftLeg = Vector3.new(0, 0, 0),
+	rightLeg = Vector3.new(0, 0, 0),
+	torso = Vector3.new(0, 0, 0),
+	head = Vector3.new(0, 0, 0)
 };
 ------------------------------
 
@@ -74,73 +66,73 @@ local hatAttachments = {};
 local bodyPartPosConnection
 local hatConnection
 local function startMain()
-----------[  Main function  ]----------
+	----------[  Main function  ]----------
 
 
-----------[  Netless  ]----------
-    local netlessConnection
-    for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
-        if v:IsA("BasePart") and v.Name ~= "HumanoidRootPart" then 
-            netlessConnection = game:GetService("RunService").Heartbeat:connect(function()
-                v.Velocity = Vector3.new(-30, 0, 0)
-                v.Massless = true
-            end)
-        end
-    end
-    game:GetService("StarterGui"):SetCore("SendNotification", {
-        Title = "Netless";
-        Text = "Netless v? has succesfully been loaded!"
-    })
----------------------------------
+	----------[  Netless  ]----------
+	local netlessConnection
+	for i,v in next, game:GetService("Players").LocalPlayer.Character:GetDescendants() do
+		if v:IsA("BasePart") and v.Name ~= "HumanoidRootPart" then 
+			netlessConnection = game:GetService("RunService").Heartbeat:connect(function()
+				v.Velocity = Vector3.new(-30, 0, 0)
+				v.Massless = true
+			end)
+		end
+	end
+	game:GetService("StarterGui"):SetCore("SendNotification", {
+		Title = "Netless";
+		Text = "Netless v? has succesfully been loaded!"
+	})
+	---------------------------------
 
 
-    if not players:FindFirstChild(_G.settings.player) or not players:FindFirstChild(_G.settings.player).Character then
-        _G.settings.player = localplayer
-    end
-    localCharacter = localPlayer.Character;
-    localHumanoid = localCharacter.Humanoid;
-    root = localHumanoid.RootPart;
-    task.spawn(function()
-        for i,v in pairs(localCharacter:GetDescendants()) do
-            if v:IsA("SpecialMesh") and v.Parent.Name ~= "Head" then
-                v:Destroy();
-            end;
-        end;
-    end)
+	if not players:FindFirstChild(_G.settings.player) or not players:FindFirstChild(_G.settings.player).Character then
+		_G.settings.player = localplayer
+	end
+	localCharacter = localPlayer.Character;
+	localHumanoid = localCharacter.Humanoid;
+	root = localHumanoid.RootPart;
+	task.spawn(function()
+		for i,v in pairs(localCharacter:GetDescendants()) do
+			if v:IsA("SpecialMesh") and v.Parent.Name ~= "Head" then
+				v:Destroy();
+			end;
+		end;
+	end)
 
-    local parts = {};
-    local hatParts = {};
-    local bodyParts = {};
-    for i,v in pairs(localCharacter:GetDescendants()) do
-        if v.Name == "Handle" then
-            table.insert(hatParts, v);
-            table.insert(parts, v);
-        end;
-        -- if #hatParts == 9 then
-        --     break
-        -- end
+	local parts = {};
+	local hatParts = {};
+	local bodyParts = {};
+	for i,v in pairs(localCharacter:GetDescendants()) do
+		if v.Name == "Handle" then
+			table.insert(hatParts, v);
+			table.insert(parts, v);
+		end;
+		-- if #hatParts == 9 then
+		--     break
+		-- end
 
-        if v.Name == "Left Arm" then
-            table.insert(bodyParts, v);
-            table.insert(parts, v);
-        end;
-        if v.Name == "Right Arm" then
-            table.insert(bodyParts, v);
-            table.insert(parts, v);
-        end;
-        -- if v.Name == "Left Leg" then
-        -- 	table.insert(bodyParts, v);
-        -- 	table.insert(parts, v);
-        -- end;
-        -- if v.Name == "Right Leg" then
-        -- 	table.insert(bodyParts, v);
-        -- 	table.insert(parts, v);
-        -- end;
-    end;
-    -------------------------------------------
+		if v.Name == "Left Arm" then
+			table.insert(bodyParts, v);
+			table.insert(parts, v);
+		end;
+		if v.Name == "Right Arm" then
+			table.insert(bodyParts, v);
+			table.insert(parts, v);
+		end;
+		-- if v.Name == "Left Leg" then
+		-- 	table.insert(bodyParts, v);
+		-- 	table.insert(parts, v);
+		-- end;
+		-- if v.Name == "Right Leg" then
+		-- 	table.insert(bodyParts, v);
+		-- 	table.insert(parts, v);
+		-- end;
+	end;
+	-------------------------------------------
 
 
-    ----------[  Body Part Manipulation  ]----------
+	----------[  Body Part Manipulation  ]----------
     --[[ DISABLED DUE TO REJECTCHARACTERDELETIONS 
     local bodyAttachments = {};
     local bodyAttachmentsOne = {};
@@ -232,189 +224,443 @@ local function startMain()
     ------------------------------------------------
 --]]
 
-    ----------[  Hat Manipulation  ]----------
-    hatAttachments = {};
-    for i,v in pairs(hatParts) do
-        local attachment1 = Instance.new("Attachment", v);
-        -- local attachment2 = Instance.new("Attachment", root);
-        local attachment2 = Instance.new("Attachment", players:FindFirstChild(_G.settings.player).Character.Humanoid.RootPart);
-        attachment2.Position = Vector3.new(0,-5,0);
+	----------[  Hat Manipulation  ]----------
+	hatAttachments = {};
+	for i,v in pairs(hatParts) do
+		local attachment1 = Instance.new("Attachment", v);
+		-- local attachment2 = Instance.new("Attachment", root);
+		local attachment2 = Instance.new("Attachment", players:FindFirstChild(_G.settings.player).Character.Humanoid.RootPart);
+		attachment2.Position = Vector3.new(0,-5,0);
 
-        local alignPosition = Instance.new("AlignPosition");
-        alignPosition.Parent = v;
-        alignPosition.MaxForce = math.huge;
-        alignPosition.MaxVelocity = math.huge;
-        alignPosition.Responsiveness = math.huge;
-        alignPosition.Attachment0 = attachment1;
-        alignPosition.Attachment1 = attachment2;
+		local alignPosition = Instance.new("AlignPosition");
+		alignPosition.Parent = v;
+		alignPosition.MaxForce = math.huge;
+		alignPosition.MaxVelocity = math.huge;
+		alignPosition.Responsiveness = math.huge;
+		alignPosition.Attachment0 = attachment1;
+		alignPosition.Attachment1 = attachment2;
 
-        local alignOrientation = Instance.new("AlignOrientation");
-        alignOrientation.Parent = v;
-        alignOrientation.MaxAngularVelocity = math.huge;
-        alignOrientation.MaxTorque = math.huge;
-        alignOrientation.Responsiveness = math.huge;
-        alignOrientation.Attachment0 = attachment1;
-        alignOrientation.Attachment1 = attachment2;
+		local alignOrientation = Instance.new("AlignOrientation");
+		alignOrientation.Parent = v;
+		alignOrientation.MaxAngularVelocity = math.huge;
+		alignOrientation.MaxTorque = math.huge;
+		alignOrientation.Responsiveness = math.huge;
+		alignOrientation.Attachment0 = attachment1;
+		alignOrientation.Attachment1 = attachment2;
 
-        hatAttachments[i] = attachment2;
+		hatAttachments[i] = attachment2;
 
-        hatConnection = heartBeat:Connect(function()
-            attachment2.Parent = players:FindFirstChild(_G.settings.player).Character.Humanoid.RootPart
-        end)
+		hatConnection = heartBeat:Connect(function()
+			attachment2.Parent = players:FindFirstChild(_G.settings.player).Character.Humanoid.RootPart
+		end)
 
-        v:BreakJoints();
-    end;
+		v:BreakJoints();
+	end;
 
-    hatAttachments[1].Position = Vector3.new(-0.55, -1.5, -1);
-    hatAttachments[2].Position = Vector3.new(0.55, -1.5, -1);
-    -- hatAttachments[1].Position = Vector3.new(-0.55, 0.3, -1);
-    -- hatAttachments[2].Position = Vector3.new(0.55, 0.3, -1);
+	hatAttachments[1].Position = Vector3.new(-0.55, -1.5, -1);
+	hatAttachments[2].Position = Vector3.new(0.55, -1.5, -1);
+	-- hatAttachments[1].Position = Vector3.new(-0.55, 0.3, -1);
+	-- hatAttachments[2].Position = Vector3.new(0.55, 0.3, -1);
 end
 
 task.spawn(function()
-    local z = 0;
-    while task.wait() do
-        if _G.settings.mode == 1 then
-            if z < 2 then 
-                z += 1*_G.settings.speed ;
-            else
-                z = 0;
-            end;
-        elseif _G.settings.mode == 2 then
-            if z < 2 then 
-                z += 1*_G.settings.speed ;
-            else 
-                task.wait(0.5);
-                z = 0;
-            end;
-        end
-        for x,y in pairs(hatAttachments) do
-            if x == 1 or x == 2 then continue end
-            hatAttachments[x].Position = Vector3.new(0, -1, -x-z+3);
-        end;
-    end
+	local z = 0;
+	while task.wait() do
+		if _G.settings.mode == 1 then
+			if z < 2 then 
+				z += 1*_G.settings.speed ;
+			else
+				z = 0;
+			end;
+		elseif _G.settings.mode == 2 then
+			if z < 2 then 
+				z += 1*_G.settings.speed ;
+			else 
+				task.wait(0.5);
+				z = 0;
+			end;
+		end
+		for x,y in pairs(hatAttachments) do
+			if x == 1 or x == 2 then continue end
+			hatAttachments[x].Position = Vector3.new(0, -1, -x-z+3);
+		end;
+	end
 end)
 ------------------------------------------
 
-
-----------[  Load notification  ]----------
-starterGui:SetCore("SendNotification", {
-    Title = "Load check";
-    Text = "Everything loaded succesfully"
-});
--------------------------------------------
-
-
 ----------[  GUI FUNCTIONS  ]----------
 local function getPlayerByPlayerName(name)
-    if name then
-        name = name:lower()
-        for i, v in ipairs(players:GetPlayers()) do
-            if string.lower(string.sub(v.Name, 1, #name)) == name then
-                return v
-            end
-            if string.lower(string.sub(v.DisplayName, 1, #name)) == name then
-                return v
-            end
-        end
-        for i, v in ipairs(players:GetPlayers()) do
-            if string.match(v.Name:lower(), name) then
-                return v
-            end
-            if string.match(v.DisplayName:lower(), name) then
-                return v
-            end
-        end
-    end
+	if name then
+		name = name:lower()
+		for i, v in ipairs(players:GetPlayers()) do
+			if string.lower(string.sub(v.Name, 1, #name)) == name then
+				return v
+			end
+			if string.lower(string.sub(v.DisplayName, 1, #name)) == name then
+				return v
+			end
+		end
+		for i, v in ipairs(players:GetPlayers()) do
+			if string.match(v.Name:lower(), name) then
+				return v
+			end
+			if string.match(v.DisplayName:lower(), name) then
+				return v
+			end
+		end
+	end
 end
 
 local function getTargetPlayer(name) -- try to get a target player from the name
-    local target
-    if name == " " or name == "" then
-        -- if target player isn't specified, use the localplayer
-        target = localPlayer
-        return target
-    end
-    local matchingPlayer = getPlayerByPlayerName(name)
-    if name:lower() == "me" then
-        target = localPlayer
-        return target
-    elseif name:lower() == "random" then
-        local playerTable = players:GetPlayers()
-        target = playerTable[math.random(#playerTable)]
-        return target
-    elseif matchingPlayer then
-        target = matchingPlayer
-        return target
-    end
-    target = localPlayer
-    return target
+	local target
+	if name == " " or name == "" then
+		-- if target player isn't specified, use the localplayer
+		target = localPlayer
+		return target
+	end
+	local matchingPlayer = getPlayerByPlayerName(name)
+	if name:lower() == "me" then
+		target = localPlayer
+		return target
+	elseif name:lower() == "random" then
+		local playerTable = players:GetPlayers()
+		target = playerTable[math.random(#playerTable)]
+		return target
+	elseif matchingPlayer then
+		target = matchingPlayer
+		return target
+	end
+	target = localPlayer
+	return target
 end
 ------------------------------------------
 
 
 ----------[  Events  ]----------
 localHumanoid.Died:Connect(function()
-    bodyPartPosConnection:Disconnect()
-    netlessConnection:Disconnect()
-    hatConnection:Disconnect()
+	bodyPartPosConnection:Disconnect()
+	netlessConnection:Disconnect()
+	hatConnection:Disconnect()
 end)
 
 ------------------------------------------
 
-----------[  GUI  ]----------
-local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wall%20v3')))()
+local benis = Instance.new("ScreenGui")
+local Commands = Instance.new("Frame")
+local Container = Instance.new("Frame")
+local List = Instance.new("ScrollingFrame")
+local UIListLayout = Instance.new("UIListLayout")
+local UICorner = Instance.new("UICorner")
+local TextButton = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+local UICorner_3 = Instance.new("UICorner")
+local TextBox = Instance.new("TextBox")
+local UICorner_4 = Instance.new("UICorner")
+local TextLabel_2 = Instance.new("TextLabel")
+local UICorner_5 = Instance.new("UICorner")
+local TextBox_2 = Instance.new("TextBox")
+local UICorner_6 = Instance.new("UICorner")
+local Topbar = Instance.new("Frame")
+local Icon = Instance.new("ImageLabel")
+local Exit = Instance.new("TextButton")
+local ImageLabel = Instance.new("ImageLabel")
+local ImageLabel_2 = Instance.new("ImageLabel")
+local TopBar = Instance.new("Frame")
+local ImageLabel_3 = Instance.new("ImageLabel")
+local ImageLabel_4 = Instance.new("ImageLabel")
+local Title = Instance.new("TextLabel")
+local UICorner_7 = Instance.new("UICorner")
 
-local w = library:CreateWindow("Roblox FE Penis with animation")
-local b = w:CreateFolder("Main")
-local c = w:CreateFolder("Credits")
+benis.Name = "benis"
+benis.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+benis.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-b:Label("Made by 5CH1Z0", {
-    TextSize = 25;
-    TextColor = Color3.fromRGB(255,255,255);
-    BgColor = Color3.fromRGB(69,69,69);
-})
+Commands.Name = "Commands"
+Commands.Parent = benis
+Commands.BackgroundColor3 = Color3.fromRGB(32, 32, 32)
+Commands.BackgroundTransparency = 0.110
+Commands.BorderColor3 = Color3.fromRGB(139, 139, 139)
+Commands.BorderSizePixel = 0
+Commands.Position = UDim2.new(0.165332392, 0, 0.498874247, 0)
+Commands.Size = UDim2.new(0, 237, 0, 260)
 
-b:Label("GUI made by Damian11#3382", {
-    TextSize = 15;
-    TextColor = Color3.fromRGB(255,255,255);
-    BgColor = Color3.fromRGB(69,69,69);
-})
+Container.Name = "Container"
+Container.Parent = Commands
+Container.AnchorPoint = Vector2.new(0.5, 1)
+Container.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+Container.BackgroundTransparency = 0.100
+Container.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Container.BorderSizePixel = 0
+Container.ClipsDescendants = true
+Container.Position = UDim2.new(0.5, 0, 1, -5)
+Container.Size = UDim2.new(1, -10, 1, -30)
 
-b:Button("Start script", function()
-    startMain()
-end)
---[[
-b:Toggle("Custom body part position", function(bool)
-    _G.settings.customBodyPartPos = bool
-end)
---]]
+List.Name = "List"
+List.Parent = Container
+List.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+List.BackgroundTransparency = 1.000
+List.BorderColor3 = Color3.fromRGB(16, 16, 16)
+List.BorderSizePixel = 0
+List.Position = UDim2.new(0, 6, 0, 27)
+List.Size = UDim2.new(1, -10, 1, -27)
+List.BottomImage = "rbxgameasset://Images/scrollBottom (1)"
+List.CanvasPosition = Vector2.new(0, 6.79802942)
+List.MidImage = "rbxgameasset://Images/scrollMid"
+List.ScrollBarThickness = 4
+List.TopImage = "rbxgameasset://Images/scrollTop"
 
-b:Box("Target name", "string", function(value)
-    _G.settings.player = getTargetPlayer(value).Name
-end)
+UIListLayout.Parent = List
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0, 2)
 
-b:Slider("Slider",{
-    min = 0;
-    max = 15;
-    precise = false;
-}, function(value)
-    _G.settings.speed = value / 10
-end)
+UICorner.CornerRadius = UDim.new(0, 9)
+UICorner.Parent = Container
 
-b:Dropdown("Mode", {"Standard", "Ejaculate"}, true, function(mob)
-    if mob == "Standard" then
-        _G.settings.mode = 1
-    else
-        _G.settings.mode = 2
-    end
-end)
+TextButton.Parent = Container
+TextButton.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
+TextButton.Position = UDim2.new(0.0837004334, 0, 0.047826089, 0)
+TextButton.Size = UDim2.new(0, 188, 0, 27)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "Activate the PIG BENIS"
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextSize = 17.000
 
-c:Label("RoPI - emotional support", {
-    TextSize = 15;
-    TextColor = Color3.fromRGB(255,255,255);
-    BgColor = Color3.fromRGB(69,69,69);
-})
+UICorner_2.Parent = TextButton
 
-b:DestroyGui()
-------------------------------------------
+TextLabel.Parent = Container
+TextLabel.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
+TextLabel.Position = UDim2.new(0.0352422893, 0, 0.195652172, 0)
+TextLabel.Size = UDim2.new(0, 210, 0, 23)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Target name"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 20.000
+TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+UICorner_3.Parent = TextLabel
+
+TextBox.Parent = TextLabel
+TextBox.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+TextBox.Position = UDim2.new(0.480952382, 0, 0.173913047, 0)
+TextBox.Size = UDim2.new(0, 98, 0, 15)
+TextBox.Font = Enum.Font.SourceSans
+TextBox.PlaceholderText = "Name here"
+TextBox.Text = ""
+TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.TextSize = 14.000
+
+UICorner_4.Parent = TextBox
+
+TextLabel_2.Parent = Container
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
+TextLabel_2.Position = UDim2.new(0.0352422893, 0, 0.326086938, 0)
+TextLabel_2.Size = UDim2.new(0, 210, 0, 23)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = "Speed"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextSize = 20.000
+TextLabel_2.TextXAlignment = Enum.TextXAlignment.Left
+
+UICorner_5.Parent = TextLabel_2
+
+TextBox_2.Parent = TextLabel_2
+TextBox_2.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+TextBox_2.Position = UDim2.new(0.480952382, 0, 0.173913047, 0)
+TextBox_2.Size = UDim2.new(0, 98, 0, 15)
+TextBox_2.Font = Enum.Font.SourceSans
+TextBox_2.PlaceholderText = "Speed here"
+TextBox_2.Text = ""
+TextBox_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextBox_2.TextSize = 14.000
+
+UICorner_6.Parent = TextBox_2
+
+Topbar.Name = "Topbar"
+Topbar.Parent = Commands
+Topbar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Topbar.BackgroundTransparency = 1.000
+Topbar.Size = UDim2.new(1, 0, 0, 25)
+
+Icon.Name = "Icon"
+Icon.Parent = Topbar
+Icon.AnchorPoint = Vector2.new(0, 0.5)
+Icon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Icon.BackgroundTransparency = 1.000
+Icon.Position = UDim2.new(0, 10, 0.5, 0)
+Icon.Size = UDim2.new(0, 13, 0, 13)
+Icon.Image = "rbxgameasset://Images/menuIcon"
+
+Exit.Name = "Exit"
+Exit.Parent = Topbar
+Exit.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
+Exit.BackgroundTransparency = 0.150
+Exit.BorderSizePixel = 0
+Exit.Position = UDim2.new(0.989399195, -42, -0.040001221, 2)
+Exit.Size = UDim2.new(-0.0494699702, 40, 0.994256616, -10)
+Exit.Font = Enum.Font.Gotham
+Exit.Text = "X"
+Exit.TextColor3 = Color3.fromRGB(255, 255, 255)
+Exit.TextSize = 13.000
+
+ImageLabel.Parent = Exit
+ImageLabel.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+ImageLabel.BackgroundTransparency = 1.000
+ImageLabel.Position = UDim2.new(1.00000012, 0, 0, 0)
+ImageLabel.Size = UDim2.new(0, 8, 0, 14)
+ImageLabel.Image = "http://www.roblox.com/asset/?id=8650484523"
+ImageLabel.ImageColor3 = Color3.fromRGB(28, 28, 28)
+ImageLabel.ImageTransparency = 0.150
+
+ImageLabel_2.Parent = Exit
+ImageLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_2.BackgroundTransparency = 1.000
+ImageLabel_2.Position = UDim2.new(-0.31400001, 0, 0, 0)
+ImageLabel_2.Size = UDim2.new(0, 9, 0, 14)
+ImageLabel_2.Image = "http://www.roblox.com/asset/?id=10555881849"
+ImageLabel_2.ImageColor3 = Color3.fromRGB(28, 28, 28)
+ImageLabel_2.ImageTransparency = 0.150
+
+TopBar.Name = "TopBar"
+TopBar.Parent = Topbar
+TopBar.BackgroundColor3 = Color3.fromRGB(28, 28, 28)
+TopBar.BackgroundTransparency = 0.150
+TopBar.BorderSizePixel = 0
+TopBar.Position = UDim2.new(0.345720142, 0, 0, 0)
+TopBar.Size = UDim2.new(-0.0388692319, 82, 1.03425419, -10)
+
+ImageLabel_3.Parent = TopBar
+ImageLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_3.BackgroundTransparency = 1.000
+ImageLabel_3.Position = UDim2.new(0.999999881, 0, 0, 0)
+ImageLabel_3.Size = UDim2.new(0, 14, 0, 15)
+ImageLabel_3.Image = "http://www.roblox.com/asset/?id=8650484523"
+ImageLabel_3.ImageColor3 = Color3.fromRGB(28, 28, 28)
+ImageLabel_3.ImageTransparency = 0.150
+
+ImageLabel_4.Parent = TopBar
+ImageLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_4.BackgroundTransparency = 1.000
+ImageLabel_4.Position = UDim2.new(-0.230000004, 0, 0, 0)
+ImageLabel_4.Size = UDim2.new(0, 17, 0, 16)
+ImageLabel_4.Image = "http://www.roblox.com/asset/?id=10555881849"
+ImageLabel_4.ImageColor3 = Color3.fromRGB(28, 28, 28)
+ImageLabel_4.ImageTransparency = 0.100
+
+Title.Name = "Title"
+Title.Parent = TopBar
+Title.AnchorPoint = Vector2.new(0, 0.5)
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(-0.556498051, 32, 0.457961261, 0)
+Title.Size = UDim2.new(0.0849909037, 80, 0.726722002, -7)
+Title.Font = Enum.Font.SourceSansLight
+Title.Text = "pig benis"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 17.000
+
+UICorner_7.CornerRadius = UDim.new(0, 9)
+UICorner_7.Parent = Commands
+
+
+local function GUACY_fake_script() -- TextButton.LocalScript 
+	local script = Instance.new('LocalScript', TextButton)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		startMain()
+		end)
+end
+coroutine.wrap(GUACY_fake_script)()
+local function SXWK_fake_script() -- TextBox.LocalScript 
+	local script = Instance.new('LocalScript', TextBox)
+
+	script.Parent.FocusLost:Connect(function()
+		local text = script.Parent.Text
+	_G.settings.player = getTargetPlayer(text).Name
+		print("event was fired ")
+	end) 
+end
+coroutine.wrap(SXWK_fake_script)()
+local function ZMLYSF_fake_script() -- TextBox_2.LocalScript 
+	local script = Instance.new('LocalScript', TextBox_2)
+
+	script.Parent.FocusLost:Connect(function()
+		local text = script.Parent.Text
+		_G.settings.speed = text / 10
+	end) 
+end
+coroutine.wrap(ZMLYSF_fake_script)()
+local function QJAT_fake_script() -- Exit.LocalScript 
+	local script = Instance.new('LocalScript', Exit)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.Parent:Destroy()
+		end)
+end
+coroutine.wrap(QJAT_fake_script)()
+local function RWYOBZC_fake_script() -- Commands.LocalScript 
+	local script = Instance.new('LocalScript', Commands)
+
+	script.Parent.Active = true
+	script.Parent.Parent.ResetOnSpawn = false
+end
+coroutine.wrap(RWYOBZC_fake_script)()
+local function RCAXQEX_fake_script() -- Commands.smooth 
+	local script = Instance.new('LocalScript', Commands)
+
+	local UserInputService = game:GetService("UserInputService")
+	local runService = (game:GetService("RunService"));
+	
+	local gui = script.Parent
+	
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+	
+	function Lerp(a, b, m)
+		return a + (b - a) * m
+	end;
+	
+	local lastMousePos
+	local lastGoalPos
+	local DRAG_SPEED = (8); -- // The speed of the UI darg.
+	function Update(dt)
+		if not (startPos) then return end;
+		if not (dragging) and (lastGoalPos) then
+			gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, lastGoalPos.X.Offset, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, lastGoalPos.Y.Offset, dt * DRAG_SPEED))
+			return 
+		end;
+	
+		local delta = (lastMousePos - UserInputService:GetMouseLocation())
+		local xGoal = (startPos.X.Offset - delta.X);
+		local yGoal = (startPos.Y.Offset - delta.Y);
+		lastGoalPos = UDim2.new(startPos.X.Scale, xGoal, startPos.Y.Scale, yGoal)
+		gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, xGoal, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, yGoal, dt * DRAG_SPEED))
+	end;
+	
+	gui.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui.Position
+			lastMousePos = UserInputService:GetMouseLocation()
+	
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+	
+	gui.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	
+	runService.Heartbeat:Connect(Update)
+end
+coroutine.wrap(RCAXQEX_fake_script)()
