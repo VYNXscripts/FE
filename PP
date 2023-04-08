@@ -345,6 +345,11 @@ end)
 
 ------------------------------------------
 
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
 local benis = Instance.new("ScreenGui")
 local Commands = Instance.new("Frame")
 local Container = Instance.new("Frame")
@@ -358,9 +363,11 @@ local UICorner_3 = Instance.new("UICorner")
 local TextBox = Instance.new("TextBox")
 local UICorner_4 = Instance.new("UICorner")
 local TextLabel_2 = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
 local UICorner_5 = Instance.new("UICorner")
 local TextBox_2 = Instance.new("TextBox")
 local UICorner_6 = Instance.new("UICorner")
+local TextLabel_4 = Instance.new("TextLabel")
 local Topbar = Instance.new("Frame")
 local Icon = Instance.new("ImageLabel")
 local Exit = Instance.new("TextButton")
@@ -371,6 +378,8 @@ local ImageLabel_3 = Instance.new("ImageLabel")
 local ImageLabel_4 = Instance.new("ImageLabel")
 local Title = Instance.new("TextLabel")
 local UICorner_7 = Instance.new("UICorner")
+
+--Properties:
 
 benis.Name = "benis"
 benis.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -418,7 +427,7 @@ UICorner.CornerRadius = UDim.new(0, 9)
 UICorner.Parent = Container
 
 TextButton.Parent = Container
-TextButton.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
+TextButton.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
 TextButton.Position = UDim2.new(0.0837004334, 0, 0.047826089, 0)
 TextButton.Size = UDim2.new(0, 188, 0, 27)
 TextButton.Font = Enum.Font.SourceSans
@@ -429,11 +438,11 @@ TextButton.TextSize = 17.000
 UICorner_2.Parent = TextButton
 
 TextLabel.Parent = Container
-TextLabel.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
+TextLabel.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
 TextLabel.Position = UDim2.new(0.0352422893, 0, 0.195652172, 0)
 TextLabel.Size = UDim2.new(0, 210, 0, 23)
 TextLabel.Font = Enum.Font.SourceSans
-TextLabel.Text = "Target name"
+TextLabel.Text = " "
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.TextSize = 20.000
 TextLabel.TextXAlignment = Enum.TextXAlignment.Left
@@ -441,7 +450,7 @@ TextLabel.TextXAlignment = Enum.TextXAlignment.Left
 UICorner_3.Parent = TextLabel
 
 TextBox.Parent = TextLabel
-TextBox.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+TextBox.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 TextBox.Position = UDim2.new(0.480952382, 0, 0.173913047, 0)
 TextBox.Size = UDim2.new(0, 98, 0, 15)
 TextBox.Font = Enum.Font.SourceSans
@@ -452,20 +461,30 @@ TextBox.TextSize = 14.000
 
 UICorner_4.Parent = TextBox
 
-TextLabel_2.Parent = Container
-TextLabel_2.BackgroundColor3 = Color3.fromRGB(21, 21, 21)
-TextLabel_2.Position = UDim2.new(0.0352422893, 0, 0.326086938, 0)
-TextLabel_2.Size = UDim2.new(0, 210, 0, 23)
+TextLabel_2.Parent = TextLabel
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Position = UDim2.new(0.0809523836, 0, 0, 0)
+TextLabel_2.Size = UDim2.new(0, 68, 0, 23)
 TextLabel_2.Font = Enum.Font.SourceSans
-TextLabel_2.Text = "Speed"
+TextLabel_2.Text = "Target name"
 TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_2.TextSize = 20.000
-TextLabel_2.TextXAlignment = Enum.TextXAlignment.Left
+TextLabel_2.TextSize = 15.000
 
-UICorner_5.Parent = TextLabel_2
+TextLabel_3.Parent = Container
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(23, 23, 23)
+TextLabel_3.Position = UDim2.new(0.0352422893, 0, 0.326086938, 0)
+TextLabel_3.Size = UDim2.new(0, 210, 0, 23)
+TextLabel_3.Font = Enum.Font.SourceSans
+TextLabel_3.Text = " "
+TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.TextSize = 20.000
+TextLabel_3.TextXAlignment = Enum.TextXAlignment.Left
 
-TextBox_2.Parent = TextLabel_2
-TextBox_2.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+UICorner_5.Parent = TextLabel_3
+
+TextBox_2.Parent = TextLabel_3
+TextBox_2.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
 TextBox_2.Position = UDim2.new(0.480952382, 0, 0.173913047, 0)
 TextBox_2.Size = UDim2.new(0, 98, 0, 15)
 TextBox_2.Font = Enum.Font.SourceSans
@@ -475,6 +494,15 @@ TextBox_2.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextBox_2.TextSize = 14.000
 
 UICorner_6.Parent = TextBox_2
+
+TextLabel_4.Parent = TextLabel_3
+TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.BackgroundTransparency = 1.000
+TextLabel_4.Size = UDim2.new(0, 68, 0, 23)
+TextLabel_4.Font = Enum.Font.SourceSans
+TextLabel_4.Text = "Speed"
+TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.TextSize = 15.000
 
 Topbar.Name = "Topbar"
 Topbar.Parent = Commands
@@ -563,50 +591,51 @@ Title.TextSize = 17.000
 UICorner_7.CornerRadius = UDim.new(0, 9)
 UICorner_7.Parent = Commands
 
+-- Scripts:
 
-local function GUACY_fake_script() -- TextButton.LocalScript 
+local function JFRZ_fake_script() -- TextButton.LocalScript 
 	local script = Instance.new('LocalScript', TextButton)
 
 	script.Parent.MouseButton1Click:Connect(function()
 		startMain()
 		end)
 end
-coroutine.wrap(GUACY_fake_script)()
-local function SXWK_fake_script() -- TextBox.LocalScript 
+coroutine.wrap(JFRZ_fake_script)()
+local function EORXKBC_fake_script() -- TextBox.LocalScript 
 	local script = Instance.new('LocalScript', TextBox)
 
-	script.Parent.FocusLost:Connect(function()
+	script.Parent.FocusLost:Connect(function()--when the user stops inputting text
 		local text = script.Parent.Text
 	_G.settings.player = getTargetPlayer(text).Name
 		print("event was fired ")
 	end) 
 end
-coroutine.wrap(SXWK_fake_script)()
-local function ZMLYSF_fake_script() -- TextBox_2.LocalScript 
+coroutine.wrap(EORXKBC_fake_script)()
+local function MHHF_fake_script() -- TextBox_2.LocalScript 
 	local script = Instance.new('LocalScript', TextBox_2)
 
-	script.Parent.FocusLost:Connect(function()
+	script.Parent.FocusLost:Connect(function()--when the user stops inputting text
 		local text = script.Parent.Text
 		_G.settings.speed = text / 10
 	end) 
 end
-coroutine.wrap(ZMLYSF_fake_script)()
-local function QJAT_fake_script() -- Exit.LocalScript 
+coroutine.wrap(MHHF_fake_script)()
+local function URUQKAZ_fake_script() -- Exit.LocalScript 
 	local script = Instance.new('LocalScript', Exit)
 
 	script.Parent.MouseButton1Click:Connect(function()
 		script.Parent.Parent.Parent.Parent:Destroy()
 		end)
 end
-coroutine.wrap(QJAT_fake_script)()
-local function RWYOBZC_fake_script() -- Commands.LocalScript 
+coroutine.wrap(URUQKAZ_fake_script)()
+local function WITEAO_fake_script() -- Commands.LocalScript 
 	local script = Instance.new('LocalScript', Commands)
 
 	script.Parent.Active = true
 	script.Parent.Parent.ResetOnSpawn = false
 end
-coroutine.wrap(RWYOBZC_fake_script)()
-local function RCAXQEX_fake_script() -- Commands.smooth 
+coroutine.wrap(WITEAO_fake_script)()
+local function HBDGTL_fake_script() -- Commands.smooth 
 	local script = Instance.new('LocalScript', Commands)
 
 	local UserInputService = game:GetService("UserInputService")
@@ -663,4 +692,4 @@ local function RCAXQEX_fake_script() -- Commands.smooth
 	
 	runService.Heartbeat:Connect(Update)
 end
-coroutine.wrap(RCAXQEX_fake_script)()
+coroutine.wrap(HBDGTL_fake_script)()
