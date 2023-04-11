@@ -123,10 +123,6 @@ for _, v in ipairs(game:GetDescendants()) do
     end
 end
 
---// cursor
-local mouse = game:GetService("Players").LocalPlayer:GetMouse()
-mouse.Icon = 'rbxasset://textures/ArrowFarCursor.png'
-
 --// fps mod *runs before health bar script
 if mods.fps_counter then
     local fps_counter = Instance.new("TextLabel")
