@@ -119,11 +119,6 @@ local function DescriptionLabel(Text)
 	return Label(Text, DescriptionSettings.Font, DescriptionSettings.Size);
 end
 
-			local Sound = Instance.new("Sound",game:GetService("SoundService"))
-Sound.SoundId = "rbxassetid://4590662766"
-Sound.Volume = 6
-Sound:Play()
-
 local PropertyTweenOut = {
 	Text = "TextTransparency",
 	Fram = "BackgroundTransparency",
