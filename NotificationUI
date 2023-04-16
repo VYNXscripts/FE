@@ -1,8 +1,3 @@
-local Sound = Instance.new("Sound",game:GetService("SoundService"))
-Sound.SoundId = "rbxassetid://4590662766"
-Sound.Volume = 6
-Sound:Play()
-
 local TweenService = game:GetService("TweenService");
 local RunService = game:GetService("RunService");
 local TextService = game:GetService("TextService");
@@ -217,4 +212,8 @@ return {
 			coroutine.wrap(FadeOutAfter)(NewLabel, Duration);
 		end
 	end,
+	local Sound = Instance.new("Sound",game:GetService("SoundService"))
+Sound.SoundId = "rbxassetid://4590662766"
+Sound.Volume = 6
+Sound:Play()
 }
