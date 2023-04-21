@@ -520,5 +520,5 @@ LocalPlayer = Player
                 print("Must be R15.")
             end
 game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
-    
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/2016anims"))()
 end)
