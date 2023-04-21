@@ -1,0 +1,379 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local ChatLogs = Instance.new("Frame")
+local Container = Instance.new("Frame")
+local fakechatbutton = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+local fakename = Instance.new("TextBox")
+local UICorner_2 = Instance.new("UICorner")
+local message = Instance.new("TextBox")
+local UICorner_3 = Instance.new("UICorner")
+local yourtext = Instance.new("TextBox")
+local UICorner_4 = Instance.new("UICorner")
+local UICorner_5 = Instance.new("UICorner")
+local system = Instance.new("TextButton")
+local UICorner_6 = Instance.new("UICorner")
+local roblox = Instance.new("TextButton")
+local UICorner_7 = Instance.new("UICorner")
+local builderman = Instance.new("TextButton")
+local UICorner_8 = Instance.new("UICorner")
+local johndoe = Instance.new("TextButton")
+local UICorner_9 = Instance.new("UICorner")
+local Topbar = Instance.new("Frame")
+local Icon = Instance.new("ImageLabel")
+local Exit = Instance.new("TextButton")
+local ImageLabel = Instance.new("ImageLabel")
+local Minimize = Instance.new("TextButton")
+local ImageLabel_2 = Instance.new("ImageLabel")
+local TopBar = Instance.new("Frame")
+local ImageLabel_3 = Instance.new("ImageLabel")
+local ImageLabel_4 = Instance.new("ImageLabel")
+local Title = Instance.new("TextLabel")
+local UICorner_10 = Instance.new("UICorner")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.ResetOnSpawn = false
+
+ChatLogs.Name = "ChatLogs"
+ChatLogs.Parent = ScreenGui
+ChatLogs.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+ChatLogs.BackgroundTransparency = 0.140
+ChatLogs.BorderColor3 = Color3.fromRGB(139, 139, 139)
+ChatLogs.BorderSizePixel = 0
+ChatLogs.Position = UDim2.new(0.651177526, 0, 0.561142266, 0)
+ChatLogs.Size = UDim2.new(0, 402, 0, 262)
+
+Container.Name = "Container"
+Container.Parent = ChatLogs
+Container.AnchorPoint = Vector2.new(0.5, 1)
+Container.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+Container.BackgroundTransparency = 0.100
+Container.BorderColor3 = Color3.fromRGB(255, 255, 255)
+Container.BorderSizePixel = 0
+Container.ClipsDescendants = true
+Container.Position = UDim2.new(0.5, 0, 0.996153831, -5)
+Container.Size = UDim2.new(1, -10, 1.00769234, -30)
+
+fakechatbutton.Name = "fakechatbutton"
+fakechatbutton.Parent = Container
+fakechatbutton.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+fakechatbutton.Position = UDim2.new(0.260204077, 0, 0.734994411, 0)
+fakechatbutton.Size = UDim2.new(0, 176, 0, 28)
+fakechatbutton.Font = Enum.Font.SourceSans
+fakechatbutton.Text = "Fake chat"
+fakechatbutton.TextColor3 = Color3.fromRGB(255, 255, 255)
+fakechatbutton.TextSize = 20.000
+
+UICorner.Parent = fakechatbutton
+
+fakename.Name = "fakename"
+fakename.Parent = Container
+fakename.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+fakename.Position = UDim2.new(0.209692508, 0, 0.329038203, 0)
+fakename.Size = UDim2.new(0, 228, 0, 34)
+fakename.Font = Enum.Font.SourceSans
+fakename.PlaceholderText = "Fake name"
+fakename.Text = ""
+fakename.TextColor3 = Color3.fromRGB(255, 255, 255)
+fakename.TextSize = 14.000
+
+UICorner_2.Parent = fakename
+
+message.Name = "message"
+message.Parent = Container
+message.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+message.Position = UDim2.new(0.20408164, 0, 0.512786806, 0)
+message.Size = UDim2.new(0, 228, 0, 34)
+message.Font = Enum.Font.SourceSans
+message.PlaceholderText = "Message you want them to say"
+message.Text = ""
+message.TextColor3 = Color3.fromRGB(255, 255, 255)
+message.TextSize = 14.000
+
+UICorner_3.Parent = message
+
+yourtext.Name = "yourtext"
+yourtext.Parent = Container
+yourtext.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+yourtext.Position = UDim2.new(0.209692508, 0, 0.141016379, 0)
+yourtext.Size = UDim2.new(0, 228, 0, 34)
+yourtext.Font = Enum.Font.SourceSans
+yourtext.PlaceholderText = "Your Text"
+yourtext.Text = ""
+yourtext.TextColor3 = Color3.fromRGB(255, 255, 255)
+yourtext.TextSize = 14.000
+
+UICorner_4.Parent = yourtext
+
+UICorner_5.Parent = Container
+
+system.Name = "system"
+system.Parent = Container
+system.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+system.Position = UDim2.new(0.096938774, 0, 0.0341857858, 0)
+system.Size = UDim2.new(0, 73, 0, 16)
+system.Font = Enum.Font.SourceSans
+system.Text = "System"
+system.TextColor3 = Color3.fromRGB(255, 255, 255)
+system.TextSize = 14.000
+
+UICorner_6.Parent = system
+
+roblox.Name = "roblox"
+roblox.Parent = Container
+roblox.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+roblox.Position = UDim2.new(0.298469394, 0, 0.0341857858, 0)
+roblox.Size = UDim2.new(0, 73, 0, 16)
+roblox.Font = Enum.Font.SourceSans
+roblox.Text = "Roblox"
+roblox.TextColor3 = Color3.fromRGB(255, 255, 255)
+roblox.TextSize = 14.000
+
+UICorner_7.Parent = roblox
+
+builderman.Name = "builderman"
+builderman.Parent = Container
+builderman.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+builderman.Position = UDim2.new(0.502551019, 0, 0.0341857858, 0)
+builderman.Size = UDim2.new(0, 73, 0, 16)
+builderman.Font = Enum.Font.SourceSans
+builderman.Text = "Builderman"
+builderman.TextColor3 = Color3.fromRGB(255, 255, 255)
+builderman.TextSize = 14.000
+
+UICorner_8.Parent = builderman
+
+johndoe.Name = "johndoe"
+johndoe.Parent = Container
+johndoe.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+johndoe.Position = UDim2.new(0.704081655, 0, 0.0341857858, 0)
+johndoe.Size = UDim2.new(0, 73, 0, 16)
+johndoe.Font = Enum.Font.SourceSans
+johndoe.Text = "John Doe"
+johndoe.TextColor3 = Color3.fromRGB(255, 255, 255)
+johndoe.TextSize = 14.000
+
+UICorner_9.Parent = johndoe
+
+Topbar.Name = "Topbar"
+Topbar.Parent = ChatLogs
+Topbar.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Topbar.BackgroundTransparency = 1.000
+Topbar.Size = UDim2.new(1, 0, 0, 25)
+
+Icon.Name = "Icon"
+Icon.Parent = Topbar
+Icon.AnchorPoint = Vector2.new(0, 0.5)
+Icon.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Icon.BackgroundTransparency = 1.000
+Icon.Position = UDim2.new(0, 10, 0.5, 0)
+Icon.Size = UDim2.new(0, 13, 0, 13)
+Icon.Image = "rbxgameasset://Images/menuIcon"
+
+Exit.Name = "Exit"
+Exit.Parent = Topbar
+Exit.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+Exit.BackgroundTransparency = 0.100
+Exit.BorderSizePixel = 0
+Exit.Position = UDim2.new(0.870000005, 0, 0, 0)
+Exit.Size = UDim2.new(-0.00899999961, 40, 1.04299998, -10)
+Exit.Font = Enum.Font.Gotham
+Exit.Text = "X"
+Exit.TextColor3 = Color3.fromRGB(255, 255, 255)
+Exit.TextSize = 13.000
+
+ImageLabel.Parent = Exit
+ImageLabel.BackgroundColor3 = Color3.fromRGB(36, 36, 36)
+ImageLabel.BackgroundTransparency = 1.000
+ImageLabel.Position = UDim2.new(0.999998331, 0, 0, 0)
+ImageLabel.Size = UDim2.new(0, 9, 0, 16)
+ImageLabel.Image = "http://www.roblox.com/asset/?id=8650484523"
+ImageLabel.ImageColor3 = Color3.fromRGB(27, 27, 27)
+ImageLabel.ImageTransparency = 0.100
+
+Minimize.Name = "Minimize"
+Minimize.Parent = Topbar
+Minimize.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+Minimize.BackgroundTransparency = 0.100
+Minimize.BorderSizePixel = 0
+Minimize.Position = UDim2.new(0.809149206, 0, 0, 0)
+Minimize.Size = UDim2.new(0.00248756702, 25, 1.04300046, -10)
+Minimize.Font = Enum.Font.Gotham
+Minimize.Text = "-"
+Minimize.TextColor3 = Color3.fromRGB(255, 255, 255)
+Minimize.TextSize = 18.000
+
+ImageLabel_2.Parent = Minimize
+ImageLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_2.BackgroundTransparency = 1.000
+ImageLabel_2.Position = UDim2.new(-0.379000008, 0, 0, 0)
+ImageLabel_2.Size = UDim2.new(0, 10, 0, 14)
+ImageLabel_2.Image = "http://www.roblox.com/asset/?id=10555881849"
+ImageLabel_2.ImageColor3 = Color3.fromRGB(27, 27, 27)
+ImageLabel_2.ImageTransparency = 0.100
+
+TopBar.Name = "TopBar"
+TopBar.Parent = Topbar
+TopBar.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+TopBar.BackgroundTransparency = 0.100
+TopBar.BorderSizePixel = 0
+TopBar.Position = UDim2.new(0.268202901, 0, -0.00352294743, 0)
+TopBar.Size = UDim2.new(0, 186, 0, 16)
+
+ImageLabel_3.Parent = TopBar
+ImageLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_3.BackgroundTransparency = 1.000
+ImageLabel_3.Position = UDim2.new(0.999999642, 0, -0.00346946716, 0)
+ImageLabel_3.Size = UDim2.new(0, 14, 0, 16)
+ImageLabel_3.Image = "http://www.roblox.com/asset/?id=8650484523"
+ImageLabel_3.ImageColor3 = Color3.fromRGB(27, 27, 27)
+ImageLabel_3.ImageTransparency = 0.100
+
+ImageLabel_4.Parent = TopBar
+ImageLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel_4.BackgroundTransparency = 1.000
+ImageLabel_4.Position = UDim2.new(-0.0763963237, 0, 0, 0)
+ImageLabel_4.Size = UDim2.new(0, 15, 0, 16)
+ImageLabel_4.Image = "http://www.roblox.com/asset/?id=10555881849"
+ImageLabel_4.ImageColor3 = Color3.fromRGB(27, 27, 27)
+ImageLabel_4.ImageTransparency = 0.100
+
+Title.Name = "Title"
+Title.Parent = TopBar
+Title.AnchorPoint = Vector2.new(0, 0.5)
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(-0.150533721, 32, 0.415876389, 0)
+Title.Size = UDim2.new(0.522161067, 80, 1.11675644, -7)
+Title.Font = Enum.Font.SourceSansLight
+Title.Text = "Fake Chat"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 17.000
+Title.TextWrapped = true
+
+UICorner_10.CornerRadius = UDim.new(0, 9)
+UICorner_10.Parent = ChatLogs
+
+-- Scripts:
+
+local function DNUQYLL_fake_script() -- system.LocalScript 
+	local script = Instance.new('LocalScript', system)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.fakename.Text = "{System}"
+	end)
+end
+coroutine.wrap(DNUQYLL_fake_script)()
+local function JBZM_fake_script() -- roblox.LocalScript 
+	local script = Instance.new('LocalScript', roblox)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.fakename.Text = "[Roblox]"
+	end)
+end
+coroutine.wrap(JBZM_fake_script)()
+local function VGBQHD_fake_script() -- builderman.LocalScript 
+	local script = Instance.new('LocalScript', builderman)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.fakename.Text = "[builderman]"
+	end)
+end
+coroutine.wrap(VGBQHD_fake_script)()
+local function BOYENNB_fake_script() -- johndoe.LocalScript 
+	local script = Instance.new('LocalScript', johndoe)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.fakename.Text = "[John Doe]"
+	end)
+end
+coroutine.wrap(BOYENNB_fake_script)()
+local function RVINAAZ_fake_script() -- Exit.LocalScript 
+	local script = Instance.new('LocalScript', Exit)
+
+	script.Parent.MouseButton1Click:Connect(function()
+		script.Parent.Parent.Parent.Parent:Destroy()
+	end)
+end
+coroutine.wrap(RVINAAZ_fake_script)()
+local function OBKSFP_fake_script() -- ChatLogs.LocalScript 
+	local script = Instance.new('LocalScript', ChatLogs)
+
+	local fakename = script.Parent.Container.fakename
+	local message = script.Parent.Container.message
+	local yourtext = script.Parent.Container.yourtext
+	local fakechatbutton = script.Parent.Container.fakechatbutton
+	fakechatbutton.MouseButton1Click:Connect(function()
+	local A_1 = yourtext.Text.."                                                                                                                                            "..""..fakename.Text..": ".. message.Text
+	local A_2 = "All"
+	local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
+	Event:FireServer(A_1, A_2)
+	end)
+end
+coroutine.wrap(OBKSFP_fake_script)()
+local function PZYCIG_fake_script() -- ChatLogs.LocalScript 
+	local script = Instance.new('LocalScript', ChatLogs)
+
+	local UserInputService = game:GetService("UserInputService")
+	local runService = (game:GetService("RunService"));
+	
+	local gui = script.Parent
+	
+	local dragging
+	local dragInput
+	local dragStart
+	local startPos
+	
+	function Lerp(a, b, m)
+		return a + (b - a) * m
+	end;
+	
+	local lastMousePos
+	local lastGoalPos
+	local DRAG_SPEED = (8); -- // The speed of the UI darg.
+	function Update(dt)
+		if not (startPos) then return end;
+		if not (dragging) and (lastGoalPos) then
+			gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, lastGoalPos.X.Offset, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, lastGoalPos.Y.Offset, dt * DRAG_SPEED))
+			return 
+		end;
+	
+		local delta = (lastMousePos - UserInputService:GetMouseLocation())
+		local xGoal = (startPos.X.Offset - delta.X);
+		local yGoal = (startPos.Y.Offset - delta.Y);
+		lastGoalPos = UDim2.new(startPos.X.Scale, xGoal, startPos.Y.Scale, yGoal)
+		gui.Position = UDim2.new(startPos.X.Scale, Lerp(gui.Position.X.Offset, xGoal, dt * DRAG_SPEED), startPos.Y.Scale, Lerp(gui.Position.Y.Offset, yGoal, dt * DRAG_SPEED))
+	end;
+	
+	gui.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = gui.Position
+			lastMousePos = UserInputService:GetMouseLocation()
+	
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+	
+	gui.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	
+	runService.Heartbeat:Connect(Update)
+end
+coroutine.wrap(PZYCIG_fake_script)()
