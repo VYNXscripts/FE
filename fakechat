@@ -312,7 +312,7 @@ local function OBKSFP_fake_script() -- ChatLogs.LocalScript
 	local yourtext = script.Parent.Container.yourtext
 	local fakechatbutton = script.Parent.Container.fakechatbutton
 	fakechatbutton.MouseButton1Click:Connect(function()
-	local A_1 = yourtext.Text.."                                                                                                                                            "..""..fakename.Text..": ".. message.Text
+	local A_1 = yourtext.Text.."                                                                                                                                                          "..""..fakename.Text..": ".. message.Text
 	local A_2 = "All"
 	local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
 	Event:FireServer(A_1, A_2)
