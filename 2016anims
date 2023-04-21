@@ -519,7 +519,7 @@ LocalPlayer = Player
             else
                 print("Must be R15.")
             end
-game.Players.LocalPlayer.Character.Humanoid.Died:Connect(function()
+game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Humanoid").Died:Connect(function()
 wait(1)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/2016anims"))()
 end)
