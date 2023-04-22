@@ -1,0 +1,85 @@
+  plr = game.Players.LocalPlayer
+  
+    function GetPlayer(String)
+        local toreturn = {}
+        if String:lower() == "all" or String:lower() == "others" then
+            for i, v in pairs(game:GetService("Players"):GetPlayers()) do
+                if v ~= LocalPlayer then
+                    table.insert(toreturn, v)
+                end
+            end
+        else
+            for i, v in pairs(game:GetService("Players"):GetPlayers()) do
+                if
+                    v.Name:sub(1, #String):lower() == String:lower() or
+                        v.DisplayName:sub(1, #String):lower() == String:lower()
+                 then
+                    return {v}
+                end
+            end
+        end
+        return toreturn
+    end
+    
+    local getCharacter = function(Char)
+        local Character = Char or LocalPlayer.Character
+        return Character
+    end
+    
+    local function sprays(int)
+        local LocalPlayer = game:GetService("Players").LocalPlayer
+        int = int or #game:GetService("Players"):GetPlayers()
+        local Dropped = {}
+        for i = 1, int do
+            firetouchinterest(LocalPlayer.Character.Head, workspace["Handle"], 0)
+            firetouchinterest(LocalPlayer.Character.Head, workspace["Handle"], 1)
+            repeat
+                game:GetService("RunService").Heartbeat:wait()
+            until LocalPlayer.Character:FindFirstChildOfClass("Tool") ~= nil
+            local grabbed = LocalPlayer.Character:FindFirstChildOfClass("Tool")
+            table.insert(Dropped, grabbed)
+            grabbed.Parent = workspace
+        end
+        for i, v in pairs(Dropped) do
+            LocalPlayer.Character.Humanoid:EquipTool(v)
+        end
+        task.wait()
+        LocalPlayer.Character.Humanoid:UnequipTools()
+        return Dropped
+    end
+    
+    local getCharacter = function(Char)
+        local Character = game.Players.LocalPlayer.Character or game.Players.LocalPlayer.Character
+        return Character
+    end
+    
+    local getRoot = function(Plr)
+        return game.Players.LocalPlayer and getCharacter(Plr):FindFirstChild("HumanoidRootPart") or
+            getCharacter():FindFirstChild("HumanoidRootPart")
+    end
+    
+    local Target = GetPlayer("all")
+            local OldPos = getRoot().CFrame
+            local Humanoid = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+            for i, v in next, Target do
+                repeat
+                    local Clone = Humanoid:Clone()
+                    Clone.Parent = game.Players.LocalPlayer.Character
+                    getCharacter().Animate.Disabled = true
+                    getCharacter().Animate.Disabled = false
+                    game:GetService("Players").LocalPlayer.Character.Humanoid:Destroy()
+                    Clone:ChangeState(15)
+                    local TargRoot = getRoot(v)
+                    local Tool = game.Players.LocalPlayer.Backpack:FindFirstChildOfClass("Tool")
+                    Tool.Parent = game.Players.LocalPlayer.Character
+                    firetouchinterest(Tool.Handle, v.Character.HumanoidRootPart, 0)
+                    firetouchinterest(Tool.Handle, v.Character.HumanoidRootPart, 1)
+                    v.Character.Humanoid:ChangeState(15)
+                    task.wait()
+                until true
+            end
+            LocalPlayer.CharacterAdded:Wait()
+            repeat
+                task.wait()
+                LocalPlayer.Character:FindFirstChild("HumanoidRootPart").CFrame = OldPos
+            until getRoot().CFrame == OldPos
