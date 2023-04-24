@@ -1,3 +1,4 @@
+print("start")
 local Character = game.Players.LocalPlayer.Character
 
 local Hum = {
@@ -10,7 +11,7 @@ local Hum = {
 }
 
 function Remove()
-    repeat task.wait() until Character.LeftFoot:FindFirstChild("OriginalSize")
+    repeat wait() until Character.LeftFoot:FindFirstChild("OriginalSize")
     Character.LeftFoot.OriginalSize:Destroy()
     Character.LeftLowerLeg.OriginalSize:Destroy()
     Character.LeftUpperLeg.OriginalSize:Destroy()
@@ -20,9 +21,8 @@ Character.LeftLowerLeg.LeftKneeRigAttachment.OriginalPosition:Destroy()
 Character.LeftUpperLeg.LeftKneeRigAttachment.OriginalPosition:Destroy()
 Character.LeftLowerLeg.LeftKneeRigAttachment:Destroy()
 Character.LeftUpperLeg.LeftKneeRigAttachment:Destroy()
-
 for i=1,5 do
     Remove()
     Character.Humanoid[Hum[i]]:Destroy()
+    print("yeah")
 end
-print("yeah")
