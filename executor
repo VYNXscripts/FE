@@ -254,12 +254,12 @@ Clear.BackgroundTransparency = 0.600
 Clear.Position = UDim2.new(0.380093336, 0, 0.864968538, 0)
 Clear.Size = UDim2.new(0, 102, 0, 25)
 Clear.Font = Enum.Font.SourceSans
-Clear.Text = "Exit"
+Clear.Text = "Clear"
 Clear.TextColor3 = Color3.fromRGB(255, 255, 255)
 Clear.TextSize = 20.000
 
 Clear.MouseButton1Click:Connect(function()
-ScreenGui:Destroy()
+Editor.Text = ""
 end)
 
 UICorner_7.Parent = Clear
