@@ -1,5 +1,4 @@
 pcall(function() loadstring(game:HttpGet("http://ligma.wtf/scripts/compat.lua", true))() end)
-loadstring(game:HttpGet("https://raw.githubusercontent.com/specowos/lua-projects/main/project%202016%3A%20Remastered/modules/old_load.lua"))()
 
     getgenv().config = {
         old_console = true,
