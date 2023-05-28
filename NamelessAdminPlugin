@@ -12,7 +12,7 @@ local UICorner_3 = Instance.new("UICorner")
 local PluginsList = Instance.new("ScrollingFrame")
 local UICorner_4 = Instance.new("UICorner")
 local UIListLayout = Instance.new("UIListLayout")
-local PluginName = Instance.new("TextLabel")
+local PluginName = Instance.new("TextButton")
 local UICorner_5 = Instance.new("UICorner")
 local ChangeStuff = Instance.new("Frame")
 local UICorner_6 = Instance.new("UICorner")
@@ -162,6 +162,7 @@ AddPluginName.PlaceholderText = "Plugin Name"
 AddPluginName.Text = ""
 AddPluginName.TextColor3 = Color3.fromRGB(255, 255, 255)
 AddPluginName.TextSize = 14.000
+AddPluginName.ClearTextOnFocus = false
 
 UICorner_8.Parent = AddPluginName
 
@@ -176,6 +177,7 @@ AddPluginScript.PlaceholderText = "Plugin script"
 AddPluginScript.Text = ""
 AddPluginScript.TextColor3 = Color3.fromRGB(255, 255, 255)
 AddPluginScript.TextSize = 14.000
+AddPluginScript.ClearTextOnFocus = false
 
 UICorner_9.Parent = AddPluginScript
 
@@ -221,6 +223,7 @@ DeletePluginName.PlaceholderText = "Plugin Name"
 DeletePluginName.Text = ""
 DeletePluginName.TextColor3 = Color3.fromRGB(255, 255, 255)
 DeletePluginName.TextSize = 14.000
+DeletePluginName.ClearTextOnFocus = false
 
 UICorner_12.Parent = DeletePluginName
 
@@ -246,6 +249,9 @@ New.Parent = PluginsList
 New.Name = string.split(listfiles("Nameless-Admin/Plugins")[i],"\\")[#string.split(listfiles("Nameless-Admin/Plugins")[i],"\\")].."\n"
 New.Text = string.split(listfiles("Nameless-Admin/Plugins")[i],"\\")[#string.split(listfiles("Nameless-Admin/Plugins")[i],"\\")].."\n"
 New.Visible = true
+New.MouseButton1Click:Connect(function()
+DeletePluginName.Text = string.split(listfiles("Nameless-Admin/Plugins")[i],"\\")[#string.split(listfiles("Nameless-Admin/Plugins")[i],"\\")]..""
+end)
 	end
 
 Exit.MouseButton1Click:Connect(function()
@@ -253,7 +259,12 @@ PluginGUI:Destroy()
 end)
 
 AddPluginButton.MouseButton1Click:Connect(function()
-	writefile(AddPluginName, AddPluginScript)
+	writefile(AddPluginName.Text, AddPluginScript.Text)
+	local PluginAdd = PluginName:Clone()
+PluginAdd.Parent = PluginsList
+PluginAdd.Name = AddPluginName.Text
+PluginAdd.Text = AddPluginName.Text
+PluginAdd.Visible = true
 end)
 
 AddPluginButton.MouseButton1Click:Connect(function()
@@ -261,7 +272,7 @@ AddPluginButton.MouseButton1Click:Connect(function()
 end)
 
 DeletePluginButton.MouseButton1Click:Connect(function()
-delfile("Nameless-Admin\\Plugins\\".. DeletePluginName.Text .. ".txt")
+delfile("Nameless-Admin\\Plugins\\".. DeletePluginName.Text .. "")
 end)
 else
 local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/notificationtest"))();
