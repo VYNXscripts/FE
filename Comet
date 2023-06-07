@@ -1020,6 +1020,7 @@ Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Players[v].Character.Hum
 end)
 
 Btools.MouseButton1Click:Connect(function()
+oldicon = mouse.Icon
 	local destroytool = Instance.new("Tool", Players.LocalPlayer:FindFirstChildOfClass("Backpack"))
 	destroytool.RequiresHandle = false
 	destroytool.Name = "Delete"
@@ -1030,15 +1031,12 @@ Btools.MouseButton1Click:Connect(function()
 		equipped = true
 		mouse.Icon = "rbxasset://textures\\HammerCursor.png"
 		while equipped do
-			selectionbox.Adornee = mouse.Target
 			wait()
 		end
 	end)
 	destroytool.Unequipped:connect(function()
 		equipped = false
-		selectionbox.Adornee = nil
-		mouse.Icon = oldmouse
-		print(oldmouse)
+		mouse.Icon = oldicon
 	end)
 	destroytool.Activated:connect(function()
 		local explosion = Instance.new("Explosion", workspace)
