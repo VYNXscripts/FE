@@ -10,6 +10,7 @@ local co = Instance.new("TextLabel")
 local met = Instance.new("TextLabel")
 local Outline = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
 local ButtonsAndOther = Instance.new("Folder")
 local OptionBackground = Instance.new("Frame")
 local UICorner_2 = Instance.new("UICorner")
@@ -67,8 +68,11 @@ local UICorner_27 = Instance.new("UICorner")
 local Target = Instance.new("TextBox")
 local UICorner_28 = Instance.new("UICorner")
 local UICorner_29 = Instance.new("UICorner")
+
+--Properties:
+
 CometGUI.Name = "CometGUI"
-CometGUI.Parent = game.CoreGui
+CometGUI.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 CometGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 Comet.Name = "Comet"
@@ -115,6 +119,18 @@ Outline.Size = UDim2.new(0, 478, 0, 1)
 
 UICorner.Parent = Outline
 
+TextLabel.Parent = ForTheGUI
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.0145530142, 0, 0.958477616, 0)
+TextLabel.Size = UDim2.new(0, 465, 0, 11)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Join the discord to get a list of working games | https://discord.gg/ACk4JyVJ6x"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
 ButtonsAndOther.Name = "ButtonsAndOther"
 ButtonsAndOther.Parent = Comet
 
@@ -134,7 +150,6 @@ Scroller.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Scroller.BackgroundTransparency = 1.000
 Scroller.BorderSizePixel = 0
 Scroller.Size = UDim2.new(0, 450, 0, 194)
-Scroller.CanvasPosition = Vector2.new(0, 300)
 Scroller.CanvasSize = UDim2.new(0, 0, 3, 0)
 Scroller.ScrollBarThickness = 3
 
@@ -467,8 +482,8 @@ Target.Name = "Target"
 Target.Parent = ButtonsAndOther
 Target.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Target.BackgroundTransparency = 0.700
-Target.Position = UDim2.new(0.290251791, 0, 0.869992554, 0)
-Target.Size = UDim2.new(0, 200, 0, 29)
+Target.Position = UDim2.new(0.290251851, 0, 0.869992554, 0)
+Target.Size = UDim2.new(0, 200, 0, 22)
 Target.Font = Enum.Font.SourceSans
 Target.PlaceholderColor3 = Color3.fromRGB(255, 255, 255)
 Target.PlaceholderText = "Enter username here"
@@ -491,7 +506,7 @@ function Destroy(part)
 
 		if game:GetService("ReplicatedStorage"):FindFirstChild("DeleteCar") then
 			SupportedGame = true
-		game:GetService("ReplicatedStorage").DeleteCar:FireServer(part)
+			game:GetService("ReplicatedStorage").DeleteCar:FireServer(part)
 
 
 		elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild("HandlessSegway") then
@@ -510,16 +525,16 @@ function Destroy(part)
 
 		elseif game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Building Tools") then
 			SupportedGame = true
-local args = {
-    [1] = "Remove",
-    [2] = {
-        [1] = part
-    }
-}
-game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Building Tools").SyncAPI.ServerEndpoint:InvokeServer(unpack(args))
+			local args = {
+				[1] = "Remove",
+				[2] = {
+					[1] = part
+				}
+			}
+			game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Building Tools").SyncAPI.ServerEndpoint:InvokeServer(unpack(args))
 
 
-	end
+		end
 	end)
 end
 
@@ -1015,12 +1030,12 @@ end)
 Goto.MouseButton1Click:Connect(function()
 	local players = getPlayer(Target.Text, Players.LocalPlayer)
 	for i, v in pairs(players) do
-Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Players[v].Character.HumanoidRootPart.CFrame
+		Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Players[v].Character.HumanoidRootPart.CFrame
 	end
 end)
 
 Btools.MouseButton1Click:Connect(function()
-oldicon = mouse.Icon
+	oldicon = mouse.Icon
 	local destroytool = Instance.new("Tool", Players.LocalPlayer:FindFirstChildOfClass("Backpack"))
 	destroytool.RequiresHandle = false
 	destroytool.Name = "Delete"
@@ -1120,16 +1135,16 @@ end)
 Clearmap.MouseButton1Click:Connect(function()
 	for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
 		Destroy(v)
-		end
+	end
 end)
 
 ClearGuis.MouseButton1Click:Connect(function()
 	local players = getPlayer(Target.Text, Players.LocalPlayer)
 	for i, v in pairs(players) do
 		for i,d in pairs(Players[v].PlayerGui:GetChildren()) do
-		d:Destroy()
+			d:Destroy()
 		end
-		end
+	end
 end)
 
 View.MouseButton1Click:Connect(function()
@@ -1169,13 +1184,13 @@ if SupportedGame == true then
 		Description = "This game is supported, have fun";
 		Title = "Comet";
 		Duration = 5;
-		
-		});
+
+	});
 else
 	Notify({
 		Description = "This game is not supported try another game";
 		Title = "Comet";
 		Duration = 5;
-		
-		});
+
+	});
 end
