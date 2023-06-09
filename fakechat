@@ -418,10 +418,13 @@ Roblox.MouseButton1Click:Connect(function()
                             end)    
 
                             ChatButton.MouseButton1Click:Connect(function()
-                                local A_1 = NameBox.Text.."                                                                                                                             "..""..PlayerBox.Text..": ".. MessageBox.Text
+    local A_1 = NameBox.Text.."                                                                                                                             "..""..PlayerBox.Text..": ".. MessageBox.Text
                                 local A_2 = "All"
-                                local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
-                                Event:FireServer(A_1, A_2)
+								if game:GetService("TextChatService"):FindFirstChild("TextChannels") then
+									game:GetService("TextChatService").TextChannels.RBXGeneral:SendAsync(A_1)
+									else
+							  game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(A_1,A_2)
+								 end
                             end)
                             
                             Exit.MouseButton1Click:Connect(function()
