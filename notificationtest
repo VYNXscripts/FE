@@ -400,6 +400,10 @@ task.spawn(function()
 			Background.Visible = true
 		end)
 
+                Background:GetPropertyChangedSignal("Position"):Connect(function()
+			Background.Position = UDim2.new(0.5, 0, 0.5, 0)
+		end)
+
 		local Success, Result = pcall(function()
 			Canvas.Parent = game:GetService("CoreGui")
 		end)
