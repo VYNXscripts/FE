@@ -414,7 +414,9 @@ task.spawn(function()
 
 task.spawn(function()
 pcall(function()
-game:GetService("Players"):Chat("pedo")
+while task.wait(.1) do
+   game:GetService("Players"):Chat("pedo")
+end
 end)
 end)
 		
