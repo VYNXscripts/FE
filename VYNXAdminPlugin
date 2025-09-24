@@ -243,14 +243,14 @@ UICorner_13.Parent = DeletePluginButton
 -- PluginsList
 
 if CustomFunctionSupport then
-for i,v in pairs(listfiles("Nameless-Admin/Plugins")) do
+for i,v in pairs(listfiles("VYNX-Admin/Plugins")) do
 local New = PluginName:Clone()
 New.Parent = PluginsList
-New.Name = string.split(listfiles("Nameless-Admin/Plugins")[i],"\\")[#string.split(listfiles("Nameless-Admin/Plugins")[i],"\\")].."\n"
-New.Text = string.split(listfiles("Nameless-Admin/Plugins")[i],"\\")[#string.split(listfiles("Nameless-Admin/Plugins")[i],"\\")].."\n"
+New.Name = string.split(listfiles("VYNX-Admin/Plugins")[i],"\\")[#string.split(listfiles("VYNX-Admin/Plugins")[i],"\\")].."\n"
+New.Text = string.split(listfiles("VYNX-Admin/Plugins")[i],"\\")[#string.split(listfiles("VYNX-Admin/Plugins")[i],"\\")].."\n"
 New.Visible = true
 New.MouseButton1Click:Connect(function()
-DeletePluginName.Text = string.split(listfiles("Nameless-Admin/Plugins")[i],"\\")[#string.split(listfiles("Nameless-Admin/Plugins")[i],"\\")]..""
+DeletePluginName.Text = string.split(listfiles("VYNX-Admin/Plugins")[i],"\\")[#string.split(listfiles("VYNX-Admin/Plugins")[i],"\\")]..""
 end)
 	end
 
@@ -268,18 +268,18 @@ PluginAdd.Visible = true
 end)
 
 AddPluginButton.MouseButton1Click:Connect(function()
-	writefile("Nameless-Admin\\Plugins\\".. AddPluginName.Text .. ".txt", AddPluginScript.Text)
+	writefile("VYNX-Admin\\Plugins\\".. AddPluginName.Text .. ".txt", AddPluginScript.Text)
 end)
 
 DeletePluginButton.MouseButton1Click:Connect(function()
-delfile("Nameless-Admin\\Plugins\\".. DeletePluginName.Text .. "")
+delfile("VYNX-Admin\\Plugins\\".. DeletePluginName.Text .. "")
 end)
 else
 local AkaliNotif = loadstring(game:HttpGet("https://raw.githubusercontent.com/FilteringEnabled/FE/main/notificationtest"))();
 local Notify = AkaliNotif.Notify;
 Notify({
 Description = "It seems as though your executor does not support the plugin feature / doesnt support custom functions";
-Title = "Nameless Admin";
+Title = "VYNX Admin";
 Duration = 5;
 
 });
